@@ -1,0 +1,107 @@
+// net.idl : net 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(net.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+[
+	object,
+	uuid(C6BDF3ED-45D6-44A4-8057-7B62F99B2403),
+	dual,
+	nonextensible,
+	helpstring("封装http请求响应（反馈）信息的组件接口"),
+	pointer_default(unique)
+]
+interface IHttpResponse : IDispatch{
+	[propget, id(1), helpstring("HTTP请求响应状态值。"), helpcontext(1)] HRESULT StatusCode([out, retval] LONG* pVal);
+	[propput, id(1), helpstring("HTTP请求响应状态值。"), helpcontext(1)] HRESULT StatusCode([in] LONG newVal);
+	[propget, id(2), helpstring("HTTP请求响应内容的类型。"), helpcontext(2)] HRESULT ContentType([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("HTTP请求响应内容的类型。"), helpcontext(2)] HRESULT ContentType([in] BSTR newVal);
+	[propget, id(3), helpstring("HTTP请求响应的内容文本，如果绑定的HttpRequest的SaveResponseToFile为TRUE，则此属性返回空字符串。"), helpcontext(3)] HRESULT ContentText([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("HTTP请求响应的内容文本。"), helpcontext(3)] HRESULT ContentText([in] BSTR newVal);
+	[propget, id(4), helpstring("HTTP请求响应内容的长度值，如果绑定的Http请求的返回结果没有有效的content-length头信息，则此属性可能返回不确定的值。"), helpcontext(4)] HRESULT ContentLength([out, retval] LONG* pVal);
+	[propput, id(4), helpstring("HTTP请求响应内容的长度值。"), helpcontext(4)] HRESULT ContentLength([in] LONG newVal);
+	[propget, id(5), helpstring("HTTP请求响应的头信息。"), helpcontext(5)] HRESULT Header([out, retval] BSTR* pVal);
+	[propput, id(5), helpstring("HTTP请求响应的头信息。"), helpcontext(5)] HRESULT Header([in] BSTR newVal);
+	[propget, id(6), helpstring("请求相应过程的错误状态值。"), helpcontext(6)] HRESULT ErrorCode([out, retval] LONG* pVal);
+	[propput, id(6), helpstring("请求相应过程的错误状态值。"), helpcontext(6)] HRESULT ErrorCode([in] LONG newVal);
+};
+[
+	object,
+	uuid(80B48C37-5703-41FC-BDBB-F42FC5C482CF),
+	dual,
+	nonextensible,
+	helpstring("发送http请求相关实用工具组件接口"),
+	pointer_default(unique)
+]
+interface IHttpRequest : IDispatch{
+	[propget, id(1), helpstring("请求的URL地址字符串，发送请求前必须设置。"), helpcontext(1)] HRESULT Url([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("请求的URL地址字符串，发送请求前必须设置。"), helpcontext(1)] HRESULT Url([in] BSTR newVal);
+	[propget, id(2), helpstring("绑定的http会话的Cookie名称，可选。"), helpcontext(2)] HRESULT SessionKey([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("绑定的http会话的Cookie名称，可选。"), helpcontext(2)] HRESULT SessionKey([in] BSTR newVal);
+	[propget, id(3), helpstring("请求方法：POST（缺省）、GET等"), helpcontext(3)] HRESULT Method([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("请求方法：POST（缺省）、GET等"), helpcontext(3)] HRESULT Method([in] BSTR newVal);
+	[propget, id(4), helpstring("获取是否现实HTTP请求进度指示窗口，缺省为TRUE。"), helpcontext(4)] HRESULT ShowRequestProgress([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(4), helpstring("设置是否现实HTTP请求进度指示窗口。"), helpcontext(4)] HRESULT ShowRequestProgress([in] VARIANT_BOOL newVal);
+	[propget, id(5), helpstring("随请求发送的文件的本地文件（包括完整路径和文件名），可选，要提交文件内容，Method属性必须设置为“POST”。"), helpcontext(5)] HRESULT PostFile([out, retval] BSTR* pVal);
+	[propput, id(5), helpstring("随请求发送的文件的本地文件（包括完整路径和文件名），可选。"), helpcontext(5)] HRESULT PostFile([in] BSTR newVal);
+	[propget, id(6), helpstring("指示是否将Http请求响应（反馈）内容保存到文件，默认为FALSE，如果为TRUE，必须同时设置ResponseFile，否则被忽略。"), helpcontext(6)] HRESULT SaveResponseToFile([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(6), helpstring("指示是否将Http请求响应（反馈）内容保存到文件。"), helpcontext(6)] HRESULT SaveResponseToFile([in] VARIANT_BOOL newVal);
+	[id(7), helpstring("发送请求并返回请求响应（反馈）结果。"), helpcontext(7)] HRESULT Send([out,retval] IHttpResponse** pVal);
+	[propget, id(8), helpstring("Url中的协议部分，如http。"), helpcontext(8)] HRESULT UrlProtocol([out, retval] BSTR* pVal);
+	[propget, id(9), helpstring("Url中的端口号。"), helpcontext(9)] HRESULT UrlPort([out, retval] USHORT* pVal);
+	[propget, id(10), helpstring("Url中的主机地址部分。"), helpcontext(10)] HRESULT UrlHost([out, retval] BSTR* pVal);
+	[propget, id(11), helpstring("Url中请求的对象（文件）部分，如：index.htm、x?key=value等。"), helpcontext(11)] HRESULT UrlFile([out, retval] BSTR* pVal);
+	[propget, id(12), helpstring("Url地址是否SSL。"), helpcontext(12)] HRESULT UrlIsSSL([out, retval] VARIANT_BOOL* pVal);
+	[id(13), helpstring("增加请求的头信息，如：Content-Type（名称）: text/html（值）"), helpcontext(13)] HRESULT AddHeader([in] BSTR szName,[in] BSTR szValue);
+	[propget, id(14), helpstring("保存请求响应内容到本地的文件（包括完整路径和文件名），SaveResponseToFile必须为TRUE，否则被忽略。"), helpcontext(14)] HRESULT ResponseFile([out, retval] BSTR* pVal);
+	[propput, id(14), helpstring("保存请求响应内容到本地的文件（包括完整路径和文件名），SaveResponseToFile必须为TRUE，否则被忽略。"), helpcontext(14)] HRESULT ResponseFile([in] BSTR newVal);
+};
+
+[
+	uuid(743C5A65-8B73-45A8-9CEC-EA8FB6E3DA3E),
+	version(1.0),
+	helpstring("公文交换网络访问组件库")
+]
+library netLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(61BBE002-0D56-4147-A3FC-4577EF77334D),
+		helpstring("发送http请求相关实用工具组件事件接口")
+	]
+	dispinterface _IHttpRequestEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(99C0FB3E-3871-43DF-9316-C524FD8F0E02),
+		helpstring("发送http请求相关实用工具的组件")
+	]
+	coclass HttpRequest
+	{
+		[default] interface IHttpRequest;
+		[default, source] dispinterface _IHttpRequestEvents;
+	};
+	[
+		uuid(3AE591E6-5016-470D-8524-316F779374F0),
+		helpstring("封装http请求响应（反馈）信息的事件接口")
+	]
+	dispinterface _IHttpResponseEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(72AD7AD0-47B7-4C3B-9455-7312B46F55D3),
+		helpstring("封装http请求响应（反馈）信息的组件")
+	]
+	coclass HttpResponse
+	{
+		[default] interface IHttpResponse;
+		[default, source] dispinterface _IHttpResponseEvents;
+	};
+};

@@ -1,0 +1,64 @@
+// OEClient.idl : IDL source for OEClient
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (OEClient.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(EEA9D088-E6CE-41E2-84F7-2D9EDAAC9335),
+	dual,
+	nonextensible,
+	helpstring("IOEControl Interface"),
+	pointer_default(unique)
+]
+interface IOEControl : IDispatch{
+	[propput, bindable, requestedit, id(DISPID_ENABLED)]
+	HRESULT Enabled([in]VARIANT_BOOL vbool);
+	[propget, bindable, requestedit, id(DISPID_ENABLED)]
+	HRESULT Enabled([out,retval]VARIANT_BOOL* pbool);
+	[propget, bindable, requestedit, id(DISPID_HWND)]
+	HRESULT HWND([out, retval]LONG_PTR* pHWND);
+	[propput, bindable, requestedit, id(DISPID_CAPTION)]
+	HRESULT Caption([in]BSTR strCaption);
+	[propget, bindable, requestedit, id(DISPID_CAPTION)]
+	HRESULT Caption([out,retval]BSTR* pstrCaption);
+	[propput, bindable, requestedit, id(DISPID_BORDERVISIBLE)]
+	HRESULT BorderVisible([in]VARIANT_BOOL vbool);
+	[propget, bindable, requestedit, id(DISPID_BORDERVISIBLE)]
+	HRESULT BorderVisible([out, retval]VARIANT_BOOL* pbool);
+};
+
+[
+	uuid(0BC8F4AD-F81C-4E8D-87C8-994A71C64575),
+	version(1.0),
+	helpstring("OEClient 1.0 Type Library")
+]
+library OEClientLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(F45FD8B7-26C8-48DD-BD69-DDC40A1DA573),
+		helpstring("_IOEControlEvents Interface")
+	]
+	dispinterface _IOEControlEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(4631D137-B7AF-4EC1-ACD2-AA5A95AABEAF),
+		control,
+		licensed,
+		helpstring("OEControl Class")
+	]
+	coclass OEControl
+	{
+		[default] interface IOEControl;
+		[default, source] dispinterface _IOEControlEvents;
+	};
+};

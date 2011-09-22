@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.FileEncrypter.1 = s '使用UKEY中的证书加密文件的组件'
+	{
+		CLSID = s '{28438672-0B29-4912-92E7-8026360006F4}'
+	}
+	YRExchange.FileEncrypter = s '使用UKEY中的证书加密文件的组件'
+	{
+		CLSID = s '{28438672-0B29-4912-92E7-8026360006F4}'
+		CurVer = s 'YRExchange.FileEncrypter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {28438672-0B29-4912-92E7-8026360006F4} = s '使用UKEY中的证书加密文件的组件'
+		{
+			ProgID = s 'YRExchange.FileEncrypter.1'
+			VersionIndependentProgID = s 'YRExchange.FileEncrypter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{9B3BFE4D-E770-4703-9F23-5D1B3507C486}'
+		}
+	}
+}

@@ -1,0 +1,34 @@
+HKCR
+{
+	OEGui.OEGOffice.1 = s 'OEGOffice Class'
+	{
+		CLSID = s '{BDBC281B-0180-41AF-AA9D-AF61A2D46FDC}'
+	}
+	OEGui.OEGOffice = s 'OEGOffice Class'
+	{
+		CLSID = s '{BDBC281B-0180-41AF-AA9D-AF61A2D46FDC}'
+		CurVer = s 'OEGui.OEGOffice.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {BDBC281B-0180-41AF-AA9D-AF61A2D46FDC} = s 'OEGOffice Class'
+		{
+			ProgID = s 'OEGui.OEGOffice.1'
+			VersionIndependentProgID = s 'OEGui.OEGOffice'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 102'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{5B6ABA30-C26D-40C8-BBCB-7198D8DCF444}'
+			'Version' = s '1.0'
+		}
+	}
+}

@@ -1,0 +1,1 @@
+vcbuild dsoframer.vcproj "Release|Win32" %1

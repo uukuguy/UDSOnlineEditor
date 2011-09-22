@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.HttpRequest.1 = s '处理http请求的组件'
+	{
+		CLSID = s '{99C0FB3E-3871-43DF-9316-C524FD8F0E02}'
+	}
+	YRExchange.HttpRequest = s '处理http请求的组件'
+	{
+		CLSID = s '{99C0FB3E-3871-43DF-9316-C524FD8F0E02}'
+		CurVer = s 'YRExchange.HttpRequest.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {99C0FB3E-3871-43DF-9316-C524FD8F0E02} = s '处理http请求的组件'
+		{
+			ProgID = s 'YRExchange.HttpRequest.1'
+			VersionIndependentProgID = s 'YRExchange.HttpRequest'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{743C5A65-8B73-45A8-9CEC-EA8FB6E3DA3E}'
+		}
+	}
+}

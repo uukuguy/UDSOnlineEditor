@@ -1,0 +1,10 @@
+; OEGui.def : Declares the module parameters.
+
+LIBRARY      "OEGui.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE

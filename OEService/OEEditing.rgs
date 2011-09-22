@@ -1,0 +1,23 @@
+HKCR
+{
+	OEService.OEEditing.1 = s 'OEEditing Class'
+	{
+		CLSID = s '{E69FEC44-1B28-4BF4-B07F-9EBCACE48D79}'
+	}
+	OEService.OEEditing = s 'OEEditing Class'
+	{
+		CLSID = s '{E69FEC44-1B28-4BF4-B07F-9EBCACE48D79}'
+		CurVer = s 'OEService.OEEditing.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {E69FEC44-1B28-4BF4-B07F-9EBCACE48D79} = s 'OEEditing Class'
+		{
+			ProgID = s 'OEService.OEEditing.1'
+			VersionIndependentProgID = s 'OEService.OEEditing'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{ED53FBE4-E28B-450C-92FF-EC823CF5BD1D}'
+		}
+	}
+}

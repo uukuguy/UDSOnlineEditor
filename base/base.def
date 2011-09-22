@@ -1,0 +1,9 @@
+; base.def : 定义模块参数。
+
+LIBRARY      "base.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

@@ -1,0 +1,10 @@
+; OEClient.def : Declares the module parameters.
+
+LIBRARY      "OEClient.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall		PRIVATE

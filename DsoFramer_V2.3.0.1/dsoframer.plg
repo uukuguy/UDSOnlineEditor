@@ -1,0 +1,141 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: dsoframer - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/dsoframer.res" /i "res" /i "Debug" /d "_DEBUG" "D:\dsoframer\DsoFramer_V2.3.0.0\res\dsoframer.rc"" 
+Creating temporary file "C:\DOCUME~1\蒋最先\LOCALS~1\Temp\RSPBFB.tmp" with contents
+[
+/nologo /G6 /Zp4 /MTd /W3 /Gm /GX /Zi /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_WINDLL" /Fp"Debug/dsoframer.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"D:\dsoframer\DsoFramer_V2.3.0.0\classfactory.cpp"
+"D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp"
+"D:\dsoframer\DsoFramer_V2.3.0.0\dsofcontrol.cpp"
+"D:\dsoframer\DsoFramer_V2.3.0.0\dsofdocobj.cpp"
+"D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp"
+"D:\dsoframer\DsoFramer_V2.3.0.0\mainentry.cpp"
+"D:\dsoframer\DsoFramer_V2.3.0.0\utilities.cpp"
+]
+Creating command line "cl.exe @"C:\DOCUME~1\蒋最先\LOCALS~1\Temp\RSPBFB.tmp"" 
+Creating temporary file "C:\DOCUME~1\蒋最先\LOCALS~1\Temp\RSPBFC.tmp" with contents
+[
+oledlg.lib /nologo /version:1.1 /subsystem:windows /dll /incremental:yes /pdb:"Debug/dsoframer.pdb" /map:"Debug/dsoframer.map" /debug /machine:I386 /def:".\dsoframer.def" /out:"Debug/dsoframer.ocx" /implib:"Debug/dsoframer.lib" /pdbtype:con /FORCE:MULTIPLE 
+.\Debug\classfactory.obj
+.\Debug\dsofauto.obj
+.\Debug\dsofcontrol.obj
+.\Debug\dsofdocobj.obj
+.\Debug\dsofprint.obj
+.\Debug\mainentry.obj
+.\Debug\utilities.obj
+.\Debug\dsoframer.res
+.\HttpPostDat.lib
+]
+Creating command line "link.exe @"C:\DOCUME~1\蒋最先\LOCALS~1\Temp\RSPBFC.tmp""
+Creating temporary file "C:\DOCUME~1\蒋最先\LOCALS~1\Temp\RSPBFD.bat" with contents
+[
+@echo off
+regsvr32 /s /c ".\Debug\dsoframer.ocx"
+echo regsvr32 exec. time > ".\Debug\regsvr32.trg"
+]
+Creating command line ""C:\DOCUME~1\蒋最先\LOCALS~1\Temp\RSPBFD.bat""
+Compiling resources...
+Compiling...
+classfactory.cpp
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(147) : warning C4005: 'ASSERT' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(226) : see previous definition of 'ASSERT'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(153) : warning C4005: 'TRACE1' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(235) : see previous definition of 'TRACE1'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(158) : warning C4005: 'TRACE2' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(236) : see previous definition of 'TRACE2'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(163) : warning C4005: 'TRACE3' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(237) : see previous definition of 'TRACE3'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(206) : warning C4005: 'BEGIN_INTERFACE_PART' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afxdisp.h(151) : see previous definition of 'BEGIN_INTERFACE_PART'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(214) : warning C4005: 'METHOD_PROLOGUE' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afxdisp.h(115) : see previous definition of 'METHOD_PROLOGUE'
+D:\dsoframer\DsoFramer_V2.3.0.0\msoffice.h(21) : warning C4192: automatically excluding 'IFont' while importing type library 'C:\Program Files\Microsoft Office\Office12\EXCEL.exe'
+D:\dsoframer\DsoFramer_V2.3.0.0\msoffice.h(21) : warning C4192: automatically excluding 'IPicture' while importing type library 'C:\Program Files\Microsoft Office\Office12\EXCEL.exe'
+dsofauto.cpp
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(356) : warning C4189: 'pwszUserName' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(357) : warning C4189: 'pwszPassword' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(681) : warning C4189: 'hr' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(866) : warning C4310: cast truncates constant value
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(902) : warning C4310: cast truncates constant value
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(937) : warning C4310: cast truncates constant value
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(1024) : warning C4310: cast truncates constant value
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(1171) : warning C4310: cast truncates constant value
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(1223) : warning C4310: cast truncates constant value
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(1237) : warning C4310: cast truncates constant value
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofauto.cpp(1306) : warning C4310: cast truncates constant value
+dsofcontrol.cpp
+dsofdocobj.cpp
+dsofprint.cpp
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(490) : warning C4244: 'argument' : conversion from 'long' to 'short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(548) : warning C4244: '=' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(555) : warning C4244: '=' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(562) : warning C4244: '=' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(566) : warning C4244: '=' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(579) : warning C4244: '=' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(581) : warning C4244: '=' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(624) : warning C4018: '<' : signed/unsigned mismatch
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(613) : warning C4189: 'szAcceptType' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(614) : warning C4189: 'szContentType' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(909) : warning C4189: 'pcBmp' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(879) : warning C4189: 'dwRet' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(962) : warning C4244: 'argument' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1207) : warning C4189: 'nBytesRead' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1422) : warning C4244: '=' : conversion from 'long' to 'unsigned short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1446) : warning C4244: 'argument' : conversion from 'long' to 'short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1455) : warning C4244: 'argument' : conversion from 'long' to 'short', possible loss of data
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1437) : warning C4101: 'hr' : unreferenced local variable
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1558) : warning C4189: 'nBytesRead' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1772) : warning C4101: 'hr' : unreferenced local variable
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(1869) : warning C4101: 'hr' : unreferenced local variable
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(2114) : warning C4101: 'hr' : unreferenced local variable
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(2209) : warning C4238: nonstandard extension used : class rvalue used as lvalue
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(2329) : warning C4189: 'nPageNum' : local variable is initialized but not referenced
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(2406) : warning C4244: 'initializing' : conversion from 'long' to 'short', possible loss of data
+mainentry.cpp
+D:\dsoframer\DsoFramer_V2.3.0.0\dsofprint.cpp(2546) : warning C4715: 'CDsoFramerControl::GetOfficeVersion' : not all control paths return a value
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(147) : warning C4005: 'ASSERT' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(226) : see previous definition of 'ASSERT'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(153) : warning C4005: 'TRACE1' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(235) : see previous definition of 'TRACE1'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(158) : warning C4005: 'TRACE2' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(236) : see previous definition of 'TRACE2'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(163) : warning C4005: 'TRACE3' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(237) : see previous definition of 'TRACE3'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(206) : warning C4005: 'BEGIN_INTERFACE_PART' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afxdisp.h(151) : see previous definition of 'BEGIN_INTERFACE_PART'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(214) : warning C4005: 'METHOD_PROLOGUE' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afxdisp.h(115) : see previous definition of 'METHOD_PROLOGUE'
+utilities.cpp
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(147) : warning C4005: 'ASSERT' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(226) : see previous definition of 'ASSERT'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(153) : warning C4005: 'TRACE1' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(235) : see previous definition of 'TRACE1'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(158) : warning C4005: 'TRACE2' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(236) : see previous definition of 'TRACE2'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(163) : warning C4005: 'TRACE3' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afx.h(237) : see previous definition of 'TRACE3'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(206) : warning C4005: 'BEGIN_INTERFACE_PART' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afxdisp.h(151) : see previous definition of 'BEGIN_INTERFACE_PART'
+D:\dsoframer\DsoFramer_V2.3.0.0\utilities.h(214) : warning C4005: 'METHOD_PROLOGUE' : macro redefinition
+        C:\Program Files\Microsoft Visual Studio\VC98\MFC\INCLUDE\afxdisp.h(115) : see previous definition of 'METHOD_PROLOGUE'
+Linking...
+LINK : warning LNK4075: ignoring /INCREMENTAL due to /FORCE specification
+   Creating library Debug/dsoframer.lib and object Debug/dsoframer.exp
+LINK : warning LNK4098: defaultlib "nafxcw.lib" conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib "libc.lib" conflicts with use of other libs; use /NODEFAULTLIB:library
+<h3>Output Window</h3>
+Performing registration
+
+
+
+<h3>Results</h3>
+dsoframer.ocx - 0 error(s), 60 warning(s)
+</pre>
+</body>
+</html>

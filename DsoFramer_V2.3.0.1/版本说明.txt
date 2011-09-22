@@ -1,0 +1,19 @@
+/////////////////////////////////////////////////////
+Issued by dxHe on Jun 19,2008 Fuzhou Fujian China(Surrex China)
+Lastest version: 2.3.0.0
+Prior   version: 2.2.1.2
+/////////////////////////////////////////////////////
+
+dsoframer.ocx 2.3.0.0 Release comments:
+1、增加对OFFICE2007的支持
+2、删除2个文件：msword9.h/msword9.cpp
+
+/////////////////////////////////////////////////////
+Issued by jiangzuixian on sep 19,2009 nanning Guangxi China
+Lastest version: 2.3.0.1
+Prior   version: 2.3.0.0
+/////////////////////////////////////////////////////
+
+dsoframer.ocx 2.3.0.1 Release comments:
+1、解决保存WORD2007文档文件被删的BUG！
+2、默认打开文件类型增加OFFICE2007文件后缀：*.docx;*.xlsx;*.pptx

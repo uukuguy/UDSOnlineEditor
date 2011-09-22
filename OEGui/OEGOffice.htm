@@ -1,0 +1,50 @@
+<HTML>
+<HEAD>
+<TITLE>ATL 8.0 test page for object OEGOffice</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<script>
+	var OEOpenDocument = function(){
+		try{
+    		OEGOffice.OpenDocument("c:\\sandbox\\OnlineEditor\\test.doc",false);
+    	} catch(e){
+    	    alert("Error: " + e.message);
+    	}
+	}
+	
+	var OESaveDocument = function(){
+	    OEGOffice.SaveDocument();
+	}
+	
+	var OECloseDocument = function(){
+	    OEGOffice.CloseDocument();
+	}
+	
+	var OEGetDocRevisions = function(){
+        var docRevisions = OEGOffice.DocRevisions;
+        alert(docRevisions);	
+	}
+
+	var OEGetDocComments = function(){
+        var docComments = OEGOffice.DocComments;
+        alert(docComments);	
+	}
+	
+	var OEUploadToUDS = function(){
+	    OEGOffice.UploadToUDS("http://xxxxxx");
+	}
+</script>
+</HEAD>
+<BODY>
+
+
+<OBJECT ID="OEGOffice" CLASSID="CLSID:BDBC281B-0180-41AF-AA9D-AF61A2D46FDC"></OBJECT>
+<div />
+<input type="button" value="打开文件" onclick="OEOpenDocument();">
+<input type="button" value="保存文件" onclick="OESaveDocument();">
+<input type="button" value="关闭文件" onclick="OECloseDocument();">
+<input type="button" value="修订信息" onclick="OEGetDocRevisions();">
+<input type="button" value="批注信息" onclick="OEGetDocComments();">
+<input type="button" value="上传文件" onclick="OEUploadToUDS();">
+
+</BODY>
+</HTML>

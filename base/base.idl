@@ -1,0 +1,71 @@
+// base.idl : base 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(base.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(8ED4D781-FA2E-4904-A14E-4A683077EB48),
+	dual,
+	nonextensible,
+	helpstring("用于生成GUID和UNID的工具对象的接口。"),
+	pointer_default(unique)
+]
+interface IUNIDProvider : IDispatch{
+	[id(1), helpstring("返回唯一的GUID格式的字符串，如：{E3D1FD60-219D-42A2-A688-2FFD8ADBAEC9}"), helpcontext(1)] HRESULT ProvideGUID([out,retval] BSTR* szGUID);
+	[id(2), helpstring("返回唯一的UNID格式的字符串，如：E3D1FD60219D42A2A6882FFD8ADBAEC9"), helpcontext(2)] HRESULT ProvideUNID([out,retval] BSTR* szUNID);
+};
+[
+	object,
+	uuid(C9953D90-6240-48C0-AAFC-3C57BA8A0578),
+	dual,
+	nonextensible,
+	helpstring("常用外壳工具组件接口"),
+	pointer_default(unique)
+]
+interface IShell : IDispatch{
+	[id(1), helpstring("返回Windows系统目录（System32目录）"), helpcontext(1)] HRESULT GetSystemFolder([out,retval] BSTR* szFolder);
+	[id(2), helpstring("返回工作目录，如果没有则创建。"), helpcontext(2)] HRESULT GetWorkFolder([out,retval] BSTR* szFolder);
+	[id(3), helpstring("返回工作目录下的临时目录，如果没有则创建，一般用于保存临时文件。"), helpcontext(3)] HRESULT GetWorkFolderTemp([out,retval] BSTR* szFolder);
+	[id(4), helpstring("返回Windows版本号，格式为：主版本号.次版本号.创建号"), helpcontext(4)] HRESULT GetWindowsVersionString([out,retval] BSTR* szVer);
+	[id(5), helpstring("返回文件版本号，格式为：主版本号.次版本号.创建号"), helpcontext(5)] HRESULT GetFileVersionString([in] BSTR szFile, [out,retval] BSTR* szVer);
+	[id(6), helpstring("返回Windows当前登录用户名"), helpcontext(6)] HRESULT GetWindowsUserName([out,retval] BSTR* szUser);
+	[id(7), helpstring("返回当前用户的“我的文档”对应的磁盘目录"), helpcontext(7)] HRESULT GetPersonalFolder([out,retval] BSTR* szFolder);
+	[id(8), helpstring("获取指定文件名的文件大小，如果文件不存在则显示错误并返回0。"), helpcontext(8)] HRESULT GetFileLength([in] BSTR szFilePath, [out,retval] ULONG* ulFileLength);
+	[id(9), helpstring("返回组件的安装目录。"), helpcontext(9)] HRESULT GetInstallPath([out,retval] BSTR* szPath);
+	[id(10), helpstring("删除临时工作目录下的所有文件。"), helpcontext(10)] HRESULT ClearTempWorkFolder(void);
+	[id(11), helpstring("删除临时目录下的指定文件（可用通配符），返回true或者false指示是否删除成功。"), helpcontext(11)] HRESULT DeleteTempFile([in] BSTR szFileName, [out,retval] VARIANT_BOOL* bSuccess);
+	[id(12), helpstring("检查指定文件是否存在。"), helpcontext(12)] HRESULT FileExists([in] BSTR szFilePath, [out,retval] VARIANT_BOOL* bSuccess);
+	[id(13), helpstring("根据传入的文件名打开（编辑、浏览）文件，szVerb参数接收“open”、“edit”等动作字符串，不支持可执行文件。"), helpcontext(13)] HRESULT LaunchFile([in] BSTR szFilePath,[in,defaultvalue("open")] BSTR szVerb);
+	[id(14), helpstring("根据文件名(szFilePath)中的扩展名查找对文档执行指定动作(szVerb)的可执行文件并返回其执行文件文件路径，szVerb参数接收“open”、“edit”等动作字符串。"), helpcontext(14)] HRESULT FindAssocProgram([in] BSTR szFilePath,[in,,defaultvalue("open")] BSTR szVerb, [out,retval] BSTR* szProgram);
+	[id(15), helpstring("检查指定的文件是否已经被打开。"), helpcontext(15)] HRESULT CheckFileOpened([in] BSTR szFilePath,[out,retval] VARIANT_BOOL* bSuccess);
+};
+[
+	uuid(51F37F93-0470-4290-A067-FD3B16D2B225),
+	version(1.0),
+	helpstring("基础组件")
+]
+library baseLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(C9F0828D-EA68-4F38-B391-A8067841A9FD),
+		helpstring("用于生成GUID和UNID的工具对象。")
+	]
+	coclass UNIDProvider
+	{
+		[default] interface IUNIDProvider;
+	};
+	[
+		uuid(A2FE9A5C-DDF4-4D29-9A14-11870A12D50D),
+		helpstring("常用外壳工具组件。")
+	]
+	coclass Shell
+	{
+		[default] interface IShell;
+	};
+};

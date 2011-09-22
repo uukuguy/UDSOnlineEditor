@@ -1,0 +1,74 @@
+// OEGui.idl : IDL source for OEGui
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (OEGui.tlb) and marshalling code.
+
+#include "olectl.h"
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(E043E43A-3241-46D4-BBCB-F7B343CFABFC),
+	dual,
+	nonextensible,
+	helpstring("IOEGOffice Interface"),
+	pointer_default(unique)
+]
+interface IOEGOffice : IDispatch{
+	[propput, bindable, requestedit, id(DISPID_AUTOSIZE)]
+	HRESULT AutoSize([in]VARIANT_BOOL vbool);
+	[propget, bindable, requestedit, id(DISPID_AUTOSIZE)]
+	HRESULT AutoSize([out,retval]VARIANT_BOOL* pbool);
+	[propput, bindable, requestedit, id(DISPID_ENABLED)]
+	HRESULT Enabled([in]VARIANT_BOOL vbool);
+	[propget, bindable, requestedit, id(DISPID_ENABLED)]
+	HRESULT Enabled([out,retval]VARIANT_BOOL* pbool);
+	[propget, bindable, requestedit, id(DISPID_HWND)]
+	HRESULT HWND([out, retval]LONG_PTR* pHWND);
+	[propput, bindable, requestedit, id(DISPID_BORDERVISIBLE)]
+	HRESULT BorderVisible([in]VARIANT_BOOL vbool);
+	[propget, bindable, requestedit, id(DISPID_BORDERVISIBLE)]
+	HRESULT BorderVisible([out, retval]VARIANT_BOOL* pbool);
+	[propget, id(1), helpstring("property DocComments")] HRESULT DocComments([out, retval] BSTR* pVal);
+	[propget, id(2), helpstring("property DocRevisions")] HRESULT DocRevisions([out, retval] BSTR* pVal);
+	[id(3), helpstring("method OpenDocument")] HRESULT OpenDocument([in] BSTR filename, [in] VARIANT_BOOL bReadonly, [out,retval] VARIANT_BOOL* opened);
+	[id(4), helpstring("method CloseDocument")] HRESULT CloseDocument([out,retval] VARIANT_BOOL* closed);
+	[id(5), helpstring("method SaveDocument")] HRESULT SaveDocument([out,retval] VARIANT_BOOL* saved);
+	[propget, id(6), helpstring("property ShowRevisions")] HRESULT ShowRevisions([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(6), helpstring("property ShowRevisions")] HRESULT ShowRevisions([in] VARIANT_BOOL newVal);
+	[propget, id(7), helpstring("property ShowComments")] HRESULT ShowComments([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(7), helpstring("property ShowComments")] HRESULT ShowComments([in] VARIANT_BOOL newVal);
+	[id(8), helpstring("method UploadToUDS")] HRESULT UploadToUDS([in] BSTR uploadURL, [out,retval] VARIANT_BOOL* uploaded);
+	[id(9), helpstring("method Test")] HRESULT Test(void);
+};
+
+[
+	uuid(5B6ABA30-C26D-40C8-BBCB-7198D8DCF444),
+	version(1.0),
+	helpstring("OEGui 1.0 Type Library")
+]
+library OEGuiLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(B6676F8B-0FFA-4BE8-A5C5-1ADBB48CF7B8),
+		helpstring("_IOEGOfficeEvents Interface")
+	]
+	dispinterface _IOEGOfficeEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(BDBC281B-0180-41AF-AA9D-AF61A2D46FDC),
+		control,
+		helpstring("OEGOffice Class")
+	]
+	coclass OEGOffice
+	{
+		[default] interface IOEGOffice;
+		[default, source] dispinterface _IOEGOfficeEvents;
+	};
+};

@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.UNIDProvider.1 = s 'UNIDProvider Class'
+	{
+		CLSID = s '{C9F0828D-EA68-4F38-B391-A8067841A9FD}'
+	}
+	YRExchange.UNIDProvider = s 'UNIDProvider Class'
+	{
+		CLSID = s '{C9F0828D-EA68-4F38-B391-A8067841A9FD}'
+		CurVer = s 'YRExchange.UNIDProvider.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C9F0828D-EA68-4F38-B391-A8067841A9FD} = s 'UNIDProvider Class'
+		{
+			ProgID = s 'YRExchange.UNIDProvider.1'
+			VersionIndependentProgID = s 'YRExchange.UNIDProvider'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{51F37F93-0470-4290-A067-FD3B16D2B225}'
+		}
+	}
+}

@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.FileWriter.1 = s '创建和保存文本文件的组件'
+	{
+		CLSID = s '{2A874C33-1FA2-4C30-8FCB-94F40FF231C0}'
+	}
+	YRExchange.FileWriter = s '创建和保存文本文件的组件'
+	{
+		CLSID = s '{2A874C33-1FA2-4C30-8FCB-94F40FF231C0}'
+		CurVer = s 'YRExchange.FileWriter.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {2A874C33-1FA2-4C30-8FCB-94F40FF231C0} = s '创建和保存文本文件的组件'
+		{
+			ProgID = s 'YRExchange.FileWriter.1'
+			VersionIndependentProgID = s 'YRExchange.FileWriter'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{9B3BFE4D-E770-4703-9F23-5D1B3507C486}'
+		}
+	}
+}

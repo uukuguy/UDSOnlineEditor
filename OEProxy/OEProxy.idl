@@ -1,0 +1,47 @@
+// OEProxy.idl : IDL source for OEProxy
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (OEProxy.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(89A20F8C-72C6-4E05-8BBB-184039216A26),
+	dual,
+	nonextensible,
+	helpstring("IOELauncher Interface"),
+	pointer_default(unique)
+]
+interface IOELauncher : IDispatch{
+	[id(1), helpstring("method EditWordDocument")] HRESULT EditWordDocument([in] BSTR fileName, [in] BSTR uploadURL, [out,retval] BSTR* xmlDocInfo);
+};
+[
+	uuid(96A4F481-3B6C-4924-9B7A-F04A8C520D4F),
+	version(1.0),
+	helpstring("OEProxy 1.0 Type Library")
+]
+library OEProxyLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(ABF6AA8B-FD5A-49D6-ACED-0523CEF09B20),
+		helpstring("_IOELauncherEvents Interface")
+	]
+	dispinterface _IOELauncherEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(89C5CDD8-D5EF-4FEB-9B1C-915EC2AF9A86),
+		helpstring("OELauncher Class")
+	]
+	coclass OELauncher
+	{
+		[default] interface IOELauncher;
+		[default, source] dispinterface _IOELauncherEvents;
+	};
+};

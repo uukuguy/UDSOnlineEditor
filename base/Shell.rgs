@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.Shell.1 = s '常用外壳工具组件。'
+	{
+		CLSID = s '{A2FE9A5C-DDF4-4D29-9A14-11870A12D50D}'
+	}
+	YRExchange.Shell = s '常用外壳工具组件。'
+	{
+		CLSID = s '{A2FE9A5C-DDF4-4D29-9A14-11870A12D50D}'
+		CurVer = s 'YRExchange.Shell.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A2FE9A5C-DDF4-4D29-9A14-11870A12D50D} = s '常用外壳工具组件。'
+		{
+			ProgID = s 'YRExchange.Shell.1'
+			VersionIndependentProgID = s 'YRExchange.Shell'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{51F37F93-0470-4290-A067-FD3B16D2B225}'
+		}
+	}
+}

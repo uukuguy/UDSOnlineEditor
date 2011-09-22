@@ -1,0 +1,26 @@
+HKCR
+{
+	OEProxy.OELauncher.1 = s 'OELauncher Class'
+	{
+		CLSID = s '{89C5CDD8-D5EF-4FEB-9B1C-915EC2AF9A86}'
+	}
+	OEProxy.OELauncher = s 'OELauncher Class'
+	{
+		CLSID = s '{89C5CDD8-D5EF-4FEB-9B1C-915EC2AF9A86}'
+		CurVer = s 'OEProxy.OELauncher.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {89C5CDD8-D5EF-4FEB-9B1C-915EC2AF9A86} = s 'OELauncher Class'
+		{
+			ProgID = s 'OEProxy.OELauncher.1'
+			VersionIndependentProgID = s 'OEProxy.OELauncher'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{96A4F481-3B6C-4924-9B7A-F04A8C520D4F}'
+		}
+	}
+}

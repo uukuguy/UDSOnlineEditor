@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.TestSample.1 = s 'TestSample Class'
+	{
+		CLSID = s '{36B86070-5967-4512-8B72-5349EE1DBB47}'
+	}
+	YRExchange.TestSample = s 'TestSample Class'
+	{
+		CLSID = s '{36B86070-5967-4512-8B72-5349EE1DBB47}'
+		CurVer = s 'YRExchange.TestSample.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {36B86070-5967-4512-8B72-5349EE1DBB47} = s 'TestSample Class'
+		{
+			ProgID = s 'YRExchange.TestSample.1'
+			VersionIndependentProgID = s 'YRExchange.TestSample'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{9B3BFE4D-E770-4703-9F23-5D1B3507C486}'
+		}
+	}
+}

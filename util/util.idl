@@ -1,0 +1,160 @@
+// util.idl : util 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(util.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(68D280CB-030B-40F9-9556-EA617F39FBC5),
+	dual,
+	nonextensible,
+	helpstring("对话框实用工具组件接口"),
+	pointer_default(unique)
+]
+interface IDialog : IDispatch{
+	[id(1), helpstring("显示浏览目录对话框并返回选择结果，选择无效结果时返回“0”，取消时返回长度为零的空字符串。"), helpcontext(1)] HRESULT SelectFolder([out,retval] BSTR* szFolderResult);
+	[id(2), helpstring("显示打开文件对话框并返回用户选中的文件（打开多个文件时用“|”分隔）。"), helpcontext(2)] HRESULT SelectFiles([in,defaultvalue("")] BSTR szDefaultFileName,[in,defaultvalue("打开文件")] BSTR szTitle,[in,defaultvalue("所有文件|*.*")] BSTR szFilter,[in,defaultvalue(0)] VARIANT_BOOL blAllowMultiSelect,[out,retval] BSTR* szFile);
+	[id(3), helpstring("显示保存文件对话框并返回用户选中或输入的文件。"), helpcontext(3)] HRESULT SaveFile([in,defaultvalue("")] BSTR szDefaultFileName,[in,defaultvalue("保存文件")] BSTR szTitle,[in,defaultvalue("所有文件|*.*")] BSTR szFilter,[out,retval] BSTR* szFile);
+};
+[
+	object,
+	uuid(6A5D4CDA-FAA0-452A-B80C-7FC56B08539D),
+	dual,
+	nonextensible,
+	helpstring("创建和保存文本文件的组件接口"),
+	pointer_default(unique)
+]
+interface IFileWriter : IDispatch{
+	[id(1), helpstring("创建一个文本文件，需指定文件名，只能在临时目录下创建文件，创建文件必须第一步调用。"), helpcontext(1)] HRESULT CreateFile([in] BSTR szFileName);
+	[id(2), helpstring("追加文件内容，写入文件后不能再追加文件内容。"), helpcontext(2)] HRESULT AppendFileContent([in] BSTR szContent);
+	[id(3), helpstring("写入文件内容到临时文件，需先CreateFile、AppendFileContent后在最后调用WriteFile。"), helpcontext(3)] HRESULT WriteFile([out,retval] VARIANT_BOOL* blSuccess);
+};
+[
+	object,
+	uuid(C4D88249-2999-4B51-B630-9FF5AA9A7BFF),
+	dual,
+	nonextensible,
+	helpstring("使用UKEY中的证书加密文件的组件接口"),
+	pointer_default(unique)
+]
+interface IFileEncrypter : IDispatch{
+	[id(1), helpstring("加密源文件（szInFN）并生成加密后的文件（szOutFN），加密时可以提供加密密码（szPwd），默认为无密码。"), helpcontext(1)] HRESULT EncryptFile([in] BSTR szInFN,[in] BSTR szOutFN,[in,,defaultvalue("")] BSTR szPwd);
+};
+[
+	object,
+	uuid(4F8525D5-20B7-4EF3-91AE-3622EA1043A5),
+	dual,
+	nonextensible,
+	helpstring("使用UKEY中的证书解密文件的组件接口"),
+	pointer_default(unique)
+]
+interface IFileDecrypter : IDispatch{
+	[id(1), helpstring("解密源文件（szInFN）并生成解密后的文件（szOutFN），解密时可以提供解密密码（szPwd），默认为无密码。"), helpcontext(1)] HRESULT DecryptFile([in] BSTR mailer,[in] BSTR out_mailer,[out,retval] BSTR* rtinfo);
+	[id(2), helpstring("方法NewDecryptFile")] HRESULT NewDecryptFile([in] BSTR provider_name, [in] BSTR container_name, [in] BSTR mailer, [in] BSTR out_mailer, [out,retval] BSTR* rtinfo);
+	[id(3), helpstring("方法PIN_DecryptFile")] HRESULT PIN_DecryptFile([in] BSTR pin, [in] BSTR mailer, [in] BSTR out_mailer, [out,retval] BSTR* rtinfo);
+	[id(4), helpstring("方法HAND_DecryptFile")] HRESULT HAND_DecryptFile([in] BSTR provider_name, [in] BSTR container_name, [in] BSTR bsPin, [in] BSTR mailer, [in] BSTR out_mailer, [out,retval] BSTR* rtinfo);
+	[id(5), helpstring("方法P11LogOutFinalize")] HRESULT P11LogOutFinalize(void);
+	[id(6), helpstring("方法FindCertByUser")] HRESULT FindCertByUser([in] BSTR provider_name, [in] BSTR cuser, [out,retval] BSTR* ccontainer);
+};
+[
+	object,
+	uuid(ED770C81-946B-47BC-A25F-5C72902382A1),
+	dual,
+	nonextensible,
+	helpstring("使用UKEY中证书提供签名及验签功能的组件接口"),
+	pointer_default(unique)
+]
+interface IUKEYSignature : IDispatch{
+	[id(1), helpstring("签名输入字符串，并输出签名结果字符串。"), helpcontext(1)] HRESULT Sign([in] BSTR szMessage,[out,retval] BSTR* szSignature);
+	[id(2), helpstring("接收签名结果并验证签名字符串是否和输入字符串相符。"), helpcontext(2)] HRESULT VerifySignature([in] BSTR szSignature,[in] BSTR szMessage,[out,retval] VARIANT_BOOL* blRet);
+	[id(3), helpstring("方法NewSign")] HRESULT NewSign([in] BSTR provider_name, [in] BSTR container_name, [in] BSTR szMessage, [in] BSTR szSignature_dat, [out,retval] BSTR* szSignature);
+	[id(4), helpstring("方法HAND_Sign")] HRESULT HAND_Sign([in] BSTR provider_name, [in] BSTR container_name, [in] BSTR szMessage, [in] BSTR szSignature_dat, [in] BSTR cuser, [out,retval] BSTR* szSignature);
+	[id(5), helpstring("方法SignByUser")] HRESULT SignByUser([in] BSTR szMessage, [in] BSTR szUser, [out,retval] BSTR* szSignature);
+	[id(6), helpstring("方法GetCertSId")] HRESULT GetCertSId([in] BSTR inCertName, [out,retval] BSTR* outCertSid);
+	[id(7), helpstring("方法GetCertSubject")] HRESULT GetCertSubject([in] BSTR inCertName, [out,retval] BSTR* outSubject);
+	[id(8), helpstring("方法getCertXML")] HRESULT getCertXML([out,retval] BSTR* szXml);
+};
+[
+	object,
+	uuid(8E27D2FA-DF40-45E4-BB2B-B10E833B8F45),
+	dual,
+	nonextensible,
+	helpstring("ITestSample 接口"),
+	pointer_default(unique)
+]
+interface ITestSample : IDispatch{
+	[id(1), helpstring("方法FindCerts")] HRESULT FindCerts(void);
+	[id(2), helpstring("方法AddNums")] HRESULT AddNums([out,retval] BSTR* rtnum);
+	[id(3), helpstring("方法FindCertByUser")] HRESULT FindCertByUser([in] BSTR cuser,[out,retval] BSTR* ccontainer);
+};
+[
+	uuid(9B3BFE4D-E770-4703-9F23-5D1B3507C486),
+	version(1.0),
+	helpstring("实用工具组件包")
+]
+library utilLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(AF898AB8-DF43-451C-A035-1FDA1D19CA2D),
+		helpstring("对话框实用工具组件事件接口")
+	]
+	dispinterface _IDialogEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(25EEDB0E-D632-4824-B0B1-45DF67D6FA7C),
+		helpstring("对话框实用工具组件")
+	]
+	coclass Dialog
+	{
+		[default] interface IDialog;
+		[default, source] dispinterface _IDialogEvents;
+	};
+	[
+		uuid(2A874C33-1FA2-4C30-8FCB-94F40FF231C0),
+		helpstring("创建和保存文本文件的组件")
+	]
+	coclass FileWriter
+	{
+		[default] interface IFileWriter;
+	};
+	[
+		uuid(28438672-0B29-4912-92E7-8026360006F4),
+		helpstring("使用UKEY中的证书加密文件的组件")
+	]
+	coclass FileEncrypter
+	{
+		[default] interface IFileEncrypter;
+	};
+	[
+		uuid(C435BB0F-4127-407C-975E-96FAC18A9835),
+		helpstring("使用UKEY中的证书解密文件的组件")
+	]
+	coclass FileDecrypter
+	{
+		[default] interface IFileDecrypter;
+	};
+	[
+		uuid(C0BDBE2F-BC5B-486B-847A-7E6D21034588),
+		helpstring("使用UKEY中证书提供签名及验签功能的组件")
+	]
+	coclass UKEYSignature
+	{
+		[default] interface IUKEYSignature;
+	};
+	[
+		uuid(36B86070-5967-4512-8B72-5349EE1DBB47),
+		helpstring("TestSample Class")
+	]
+	coclass TestSample
+	{
+		[default] interface ITestSample;
+	};
+};

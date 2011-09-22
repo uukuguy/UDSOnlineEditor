@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'OEClient'
+		'OEClient.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

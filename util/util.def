@@ -1,0 +1,9 @@
+; util.def : 定义模块参数。
+
+LIBRARY      "util.DLL"
+
+EXPORTS
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE

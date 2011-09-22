@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.Dialog.1 = s '对话框实用工具组件'
+	{
+		CLSID = s '{25EEDB0E-D632-4824-B0B1-45DF67D6FA7C}'
+	}
+	YRExchange.Dialog = s '对话框实用工具组件'
+	{
+		CLSID = s '{25EEDB0E-D632-4824-B0B1-45DF67D6FA7C}'
+		CurVer = s 'YRExchange.Dialog.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {25EEDB0E-D632-4824-B0B1-45DF67D6FA7C} = s '对话框实用工具组件'
+		{
+			ProgID = s 'YRExchange.Dialog.1'
+			VersionIndependentProgID = s 'YRExchange.Dialog'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{9B3BFE4D-E770-4703-9F23-5D1B3507C486}'
+		}
+	}
+}

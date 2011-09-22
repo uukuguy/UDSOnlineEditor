@@ -1,0 +1,50 @@
+// OEService.idl : IDL source for OEService
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (OEService.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(C49F79D8-96E1-42A5-91FD-1FC4E28F6165),
+	dual,
+	nonextensible,
+	helpstring("IOEEditing Interface"),
+	pointer_default(unique)
+]
+interface IOEEditing : IDispatch{
+	[id(1), helpstring("method OpenWord")] HRESULT OpenWord([in] BSTR fileName, [in] BSTR uploadURL, [out,retval] BSTR* docID);
+	[id(2), helpstring("method CloseEditingDocument")] HRESULT CloseEditingDocument([in] BSTR docID, [in] BSTR docInfo);
+	[id(3), helpstring("method FetchDocumentInfo")] HRESULT FetchDocumentInfo([in] BSTR docID, [out,retval] BSTR* docInfo);
+};
+[
+	uuid(ED53FBE4-E28B-450C-92FF-EC823CF5BD1D),
+	version(1.0),
+	helpstring("OEService 1.0 Type Library")
+]
+library OEServiceLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(3A388A23-591E-4E78-AAFA-2E42AD06A438),
+		helpstring("_IOEEditingEvents Interface")
+	]
+	dispinterface _IOEEditingEvents
+	{
+		properties:
+		methods:
+			[id(1), helpstring("Method AfterEditDocument")] void AfterEditDocument([in] char* szDocID);
+	};
+	[
+		uuid(E69FEC44-1B28-4BF4-B07F-9EBCACE48D79),
+		helpstring("OEEditing Class")
+	]
+	coclass OEEditing
+	{
+		[default] interface IOEEditing;
+		[default, source] dispinterface _IOEEditingEvents;
+	};
+};

@@ -1,0 +1,27 @@
+HKCR
+{
+	YRExchange.UKEYSignature.1 = s '使用UKEY中证书提供签名及验签功能的组件'
+	{
+		CLSID = s '{C0BDBE2F-BC5B-486B-847A-7E6D21034588}'
+	}
+	YRExchange.UKEYSignature = s '使用UKEY中证书提供签名及验签功能的组件'
+	{
+		CLSID = s '{C0BDBE2F-BC5B-486B-847A-7E6D21034588}'
+		CurVer = s 'YRExchange.UKEYSignature.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {C0BDBE2F-BC5B-486B-847A-7E6D21034588} = s '使用UKEY中证书提供签名及验签功能的组件'
+		{
+			ProgID = s 'YRExchange.UKEYSignature.1'
+			VersionIndependentProgID = s 'YRExchange.UKEYSignature'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{9B3BFE4D-E770-4703-9F23-5D1B3507C486}'
+		}
+	}
+}
