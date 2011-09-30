@@ -38,15 +38,16 @@ class ATL_NO_VTABLE COEGOffice :
 	public IObjectSafetyImpl<COEGOffice, INTERFACESAFE_FOR_UNTRUSTED_CALLER>,
 //#endif
 	public CComCoClass<COEGOffice, &CLSID_OEGOffice>,
-	public CComCompositeControl<COEGOffice>
+        public CComCompositeControl<COEGOffice>,
+        public IDispEventImpl<IDC_FRAMERCONTROL1, COEGOffice>
 {
 private:
 	_FramerControl* GetFramerControl();
 	IUnknown* GetUnknownCP();
 	//IUnknown* GetUnknown();
 	DWORD m_dwCookie;
-	CComBSTR m_bstrFileName;
-
+    CComBSTR m_bstrFileName;
+    
 	IDispatch* GetActiveDocument();
 
 public:
@@ -125,6 +126,8 @@ END_MSG_MAP()
 
 BEGIN_SINK_MAP(COEGOffice)
 	//Make sure the Event Handlers have __stdcall calling convention
+	SINK_ENTRY(IDC_FRAMERCONTROL1, 3, OnDocumentClosedFramercontrol1)
+	SINK_ENTRY(IDC_FRAMERCONTROL1, 5, BeforeDocumentClosedFramercontrol1)
 END_SINK_MAP()
 
 	STDMETHOD(OnAmbientPropertyChange)(DISPID dispid)
@@ -198,7 +201,10 @@ END_SINK_MAP()
 	STDMETHOD(get_ShowComments)(VARIANT_BOOL* pVal);
 	STDMETHOD(put_ShowComments)(VARIANT_BOOL newVal);
 	STDMETHOD(UploadToUDS)(BSTR uploadURL, VARIANT_BOOL* uploaded);
+	STDMETHOD(OpenFromUDS)(BSTR downloadURL, BSTR fileName, VARIANT_BOOL* downloaded);
 	STDMETHOD(Test)(void);
+	HRESULT __stdcall OnDocumentClosedFramercontrol1();
+	HRESULT __stdcall BeforeDocumentClosedFramercontrol1(LPDISPATCH Document, BOOL* Cancel);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(OEGOffice), COEGOffice)

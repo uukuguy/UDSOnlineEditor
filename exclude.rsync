@@ -1,0 +1,15 @@
+.git/
+UDSOnlineEditor/*.dll
+UDSOnlineEditor/*.lib
+UDSOnlineEditor/*.ocx
+UDSOnlineEditor/*.exp
+UDSOnlineEditor/*.idl
+*.aps
+#*
+*_i.*
+*_p.*
+*.tlb
+*.vcproj
+net.h
+dlldata.c
+

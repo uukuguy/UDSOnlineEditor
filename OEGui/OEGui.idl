@@ -41,7 +41,8 @@ interface IOEGOffice : IDispatch{
 	[propget, id(7), helpstring("property ShowComments")] HRESULT ShowComments([out, retval] VARIANT_BOOL* pVal);
 	[propput, id(7), helpstring("property ShowComments")] HRESULT ShowComments([in] VARIANT_BOOL newVal);
 	[id(8), helpstring("method UploadToUDS")] HRESULT UploadToUDS([in] BSTR uploadURL, [out,retval] VARIANT_BOOL* uploaded);
-	[id(9), helpstring("method Test")] HRESULT Test(void);
+	[id(9), helpstring("method OpenFromUDS")] HRESULT OpenFromUDS([in] BSTR downloadURL, [in] BSTR fileName, [out,retval] VARIANT_BOOL* downloaded);
+	[id(10), helpstring("method Test")] HRESULT Test(void);
 };
 
 [

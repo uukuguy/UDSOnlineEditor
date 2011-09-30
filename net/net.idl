@@ -1,8 +1,8 @@
-// net.idl : net çš„ IDL æº
+// net.idl : net µÄ IDL Ô´
 //
 
-// æ­¤æ–‡ä»¶å°†ç”± MIDL å·¥å…·å¤„ç†ä»¥
-// äº§ç”Ÿç±»å‹åº“(net.tlb)å’Œå°é€å¤„ç†ä»£ç ã€‚
+// ´ËÎÄ¼ş½«ÓÉ MIDL ¹¤¾ß´¦ÀíÒÔ
+// ²úÉúÀàĞÍ¿â(net.tlb)ºÍ·âËÍ´¦Àí´úÂë¡£
 
 import "oaidl.idl";
 import "ocidl.idl";
@@ -11,66 +11,66 @@ import "ocidl.idl";
 	uuid(C6BDF3ED-45D6-44A4-8057-7B62F99B2403),
 	dual,
 	nonextensible,
-	helpstring("å°è£…httpè¯·æ±‚å“åº”ï¼ˆåé¦ˆï¼‰ä¿¡æ¯çš„ç»„ä»¶æ¥å£"),
+	helpstring("·â×°httpÇëÇóÏìÓ¦£¨·´À¡£©ĞÅÏ¢µÄ×é¼ş½Ó¿Ú"),
 	pointer_default(unique)
 ]
 interface IHttpResponse : IDispatch{
-	[propget, id(1), helpstring("HTTPè¯·æ±‚å“åº”çŠ¶æ€å€¼ã€‚"), helpcontext(1)] HRESULT StatusCode([out, retval] LONG* pVal);
-	[propput, id(1), helpstring("HTTPè¯·æ±‚å“åº”çŠ¶æ€å€¼ã€‚"), helpcontext(1)] HRESULT StatusCode([in] LONG newVal);
-	[propget, id(2), helpstring("HTTPè¯·æ±‚å“åº”å†…å®¹çš„ç±»å‹ã€‚"), helpcontext(2)] HRESULT ContentType([out, retval] BSTR* pVal);
-	[propput, id(2), helpstring("HTTPè¯·æ±‚å“åº”å†…å®¹çš„ç±»å‹ã€‚"), helpcontext(2)] HRESULT ContentType([in] BSTR newVal);
-	[propget, id(3), helpstring("HTTPè¯·æ±‚å“åº”çš„å†…å®¹æ–‡æœ¬ï¼Œå¦‚æœç»‘å®šçš„HttpRequestçš„SaveResponseToFileä¸ºTRUEï¼Œåˆ™æ­¤å±æ€§è¿”å›ç©ºå­—ç¬¦ä¸²ã€‚"), helpcontext(3)] HRESULT ContentText([out, retval] BSTR* pVal);
-	[propput, id(3), helpstring("HTTPè¯·æ±‚å“åº”çš„å†…å®¹æ–‡æœ¬ã€‚"), helpcontext(3)] HRESULT ContentText([in] BSTR newVal);
-	[propget, id(4), helpstring("HTTPè¯·æ±‚å“åº”å†…å®¹çš„é•¿åº¦å€¼ï¼Œå¦‚æœç»‘å®šçš„Httpè¯·æ±‚çš„è¿”å›ç»“æœæ²¡æœ‰æœ‰æ•ˆçš„content-lengthå¤´ä¿¡æ¯ï¼Œåˆ™æ­¤å±æ€§å¯èƒ½è¿”å›ä¸ç¡®å®šçš„å€¼ã€‚"), helpcontext(4)] HRESULT ContentLength([out, retval] LONG* pVal);
-	[propput, id(4), helpstring("HTTPè¯·æ±‚å“åº”å†…å®¹çš„é•¿åº¦å€¼ã€‚"), helpcontext(4)] HRESULT ContentLength([in] LONG newVal);
-	[propget, id(5), helpstring("HTTPè¯·æ±‚å“åº”çš„å¤´ä¿¡æ¯ã€‚"), helpcontext(5)] HRESULT Header([out, retval] BSTR* pVal);
-	[propput, id(5), helpstring("HTTPè¯·æ±‚å“åº”çš„å¤´ä¿¡æ¯ã€‚"), helpcontext(5)] HRESULT Header([in] BSTR newVal);
-	[propget, id(6), helpstring("è¯·æ±‚ç›¸åº”è¿‡ç¨‹çš„é”™è¯¯çŠ¶æ€å€¼ã€‚"), helpcontext(6)] HRESULT ErrorCode([out, retval] LONG* pVal);
-	[propput, id(6), helpstring("è¯·æ±‚ç›¸åº”è¿‡ç¨‹çš„é”™è¯¯çŠ¶æ€å€¼ã€‚"), helpcontext(6)] HRESULT ErrorCode([in] LONG newVal);
+	[propget, id(1), helpstring("HTTPÇëÇóÏìÓ¦×´Ì¬Öµ¡£"), helpcontext(1)] HRESULT StatusCode([out, retval] LONG* pVal);
+	[propput, id(1), helpstring("HTTPÇëÇóÏìÓ¦×´Ì¬Öµ¡£"), helpcontext(1)] HRESULT StatusCode([in] LONG newVal);
+	[propget, id(2), helpstring("HTTPÇëÇóÏìÓ¦ÄÚÈİµÄÀàĞÍ¡£"), helpcontext(2)] HRESULT ContentType([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("HTTPÇëÇóÏìÓ¦ÄÚÈİµÄÀàĞÍ¡£"), helpcontext(2)] HRESULT ContentType([in] BSTR newVal);
+	[propget, id(3), helpstring("HTTPÇëÇóÏìÓ¦µÄÄÚÈİÎÄ±¾£¬Èç¹û°ó¶¨µÄHttpRequestµÄSaveResponseToFileÎªTRUE£¬Ôò´ËÊôĞÔ·µ»Ø¿Õ×Ö·û´®¡£"), helpcontext(3)] HRESULT ContentText([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("HTTPÇëÇóÏìÓ¦µÄÄÚÈİÎÄ±¾¡£"), helpcontext(3)] HRESULT ContentText([in] BSTR newVal);
+	[propget, id(4), helpstring("HTTPÇëÇóÏìÓ¦ÄÚÈİµÄ³¤¶ÈÖµ£¬Èç¹û°ó¶¨µÄHttpÇëÇóµÄ·µ»Ø½á¹ûÃ»ÓĞÓĞĞ§µÄcontent-lengthÍ·ĞÅÏ¢£¬Ôò´ËÊôĞÔ¿ÉÄÜ·µ»Ø²»È·¶¨µÄÖµ¡£"), helpcontext(4)] HRESULT ContentLength([out, retval] LONG* pVal);
+	[propput, id(4), helpstring("HTTPÇëÇóÏìÓ¦ÄÚÈİµÄ³¤¶ÈÖµ¡£"), helpcontext(4)] HRESULT ContentLength([in] LONG newVal);
+	[propget, id(5), helpstring("HTTPÇëÇóÏìÓ¦µÄÍ·ĞÅÏ¢¡£"), helpcontext(5)] HRESULT Header([out, retval] BSTR* pVal);
+	[propput, id(5), helpstring("HTTPÇëÇóÏìÓ¦µÄÍ·ĞÅÏ¢¡£"), helpcontext(5)] HRESULT Header([in] BSTR newVal);
+	[propget, id(6), helpstring("ÇëÇóÏàÓ¦¹ı³ÌµÄ´íÎó×´Ì¬Öµ¡£"), helpcontext(6)] HRESULT ErrorCode([out, retval] LONG* pVal);
+	[propput, id(6), helpstring("ÇëÇóÏàÓ¦¹ı³ÌµÄ´íÎó×´Ì¬Öµ¡£"), helpcontext(6)] HRESULT ErrorCode([in] LONG newVal);
 };
 [
 	object,
 	uuid(80B48C37-5703-41FC-BDBB-F42FC5C482CF),
 	dual,
 	nonextensible,
-	helpstring("å‘é€httpè¯·æ±‚ç›¸å…³å®ç”¨å·¥å…·ç»„ä»¶æ¥å£"),
+	helpstring("·¢ËÍhttpÇëÇóÏà¹ØÊµÓÃ¹¤¾ß×é¼ş½Ó¿Ú"),
 	pointer_default(unique)
 ]
 interface IHttpRequest : IDispatch{
-	[propget, id(1), helpstring("è¯·æ±‚çš„URLåœ°å€å­—ç¬¦ä¸²ï¼Œå‘é€è¯·æ±‚å‰å¿…é¡»è®¾ç½®ã€‚"), helpcontext(1)] HRESULT Url([out, retval] BSTR* pVal);
-	[propput, id(1), helpstring("è¯·æ±‚çš„URLåœ°å€å­—ç¬¦ä¸²ï¼Œå‘é€è¯·æ±‚å‰å¿…é¡»è®¾ç½®ã€‚"), helpcontext(1)] HRESULT Url([in] BSTR newVal);
-	[propget, id(2), helpstring("ç»‘å®šçš„httpä¼šè¯çš„Cookieåç§°ï¼Œå¯é€‰ã€‚"), helpcontext(2)] HRESULT SessionKey([out, retval] BSTR* pVal);
-	[propput, id(2), helpstring("ç»‘å®šçš„httpä¼šè¯çš„Cookieåç§°ï¼Œå¯é€‰ã€‚"), helpcontext(2)] HRESULT SessionKey([in] BSTR newVal);
-	[propget, id(3), helpstring("è¯·æ±‚æ–¹æ³•ï¼šPOSTï¼ˆç¼ºçœï¼‰ã€GETç­‰"), helpcontext(3)] HRESULT Method([out, retval] BSTR* pVal);
-	[propput, id(3), helpstring("è¯·æ±‚æ–¹æ³•ï¼šPOSTï¼ˆç¼ºçœï¼‰ã€GETç­‰"), helpcontext(3)] HRESULT Method([in] BSTR newVal);
-	[propget, id(4), helpstring("è·å–æ˜¯å¦ç°å®HTTPè¯·æ±‚è¿›åº¦æŒ‡ç¤ºçª—å£ï¼Œç¼ºçœä¸ºTRUEã€‚"), helpcontext(4)] HRESULT ShowRequestProgress([out, retval] VARIANT_BOOL* pVal);
-	[propput, id(4), helpstring("è®¾ç½®æ˜¯å¦ç°å®HTTPè¯·æ±‚è¿›åº¦æŒ‡ç¤ºçª—å£ã€‚"), helpcontext(4)] HRESULT ShowRequestProgress([in] VARIANT_BOOL newVal);
-	[propget, id(5), helpstring("éšè¯·æ±‚å‘é€çš„æ–‡ä»¶çš„æœ¬åœ°æ–‡ä»¶ï¼ˆåŒ…æ‹¬å®Œæ•´è·¯å¾„å’Œæ–‡ä»¶åï¼‰ï¼Œå¯é€‰ï¼Œè¦æäº¤æ–‡ä»¶å†…å®¹ï¼ŒMethodå±æ€§å¿…é¡»è®¾ç½®ä¸ºâ€œPOSTâ€ã€‚"), helpcontext(5)] HRESULT PostFile([out, retval] BSTR* pVal);
-	[propput, id(5), helpstring("éšè¯·æ±‚å‘é€çš„æ–‡ä»¶çš„æœ¬åœ°æ–‡ä»¶ï¼ˆåŒ…æ‹¬å®Œæ•´è·¯å¾„å’Œæ–‡ä»¶åï¼‰ï¼Œå¯é€‰ã€‚"), helpcontext(5)] HRESULT PostFile([in] BSTR newVal);
-	[propget, id(6), helpstring("æŒ‡ç¤ºæ˜¯å¦å°†Httpè¯·æ±‚å“åº”ï¼ˆåé¦ˆï¼‰å†…å®¹ä¿å­˜åˆ°æ–‡ä»¶ï¼Œé»˜è®¤ä¸ºFALSEï¼Œå¦‚æœä¸ºTRUEï¼Œå¿…é¡»åŒæ—¶è®¾ç½®ResponseFileï¼Œå¦åˆ™è¢«å¿½ç•¥ã€‚"), helpcontext(6)] HRESULT SaveResponseToFile([out, retval] VARIANT_BOOL* pVal);
-	[propput, id(6), helpstring("æŒ‡ç¤ºæ˜¯å¦å°†Httpè¯·æ±‚å“åº”ï¼ˆåé¦ˆï¼‰å†…å®¹ä¿å­˜åˆ°æ–‡ä»¶ã€‚"), helpcontext(6)] HRESULT SaveResponseToFile([in] VARIANT_BOOL newVal);
-	[id(7), helpstring("å‘é€è¯·æ±‚å¹¶è¿”å›è¯·æ±‚å“åº”ï¼ˆåé¦ˆï¼‰ç»“æœã€‚"), helpcontext(7)] HRESULT Send([out,retval] IHttpResponse** pVal);
-	[propget, id(8), helpstring("Urlä¸­çš„åè®®éƒ¨åˆ†ï¼Œå¦‚httpã€‚"), helpcontext(8)] HRESULT UrlProtocol([out, retval] BSTR* pVal);
-	[propget, id(9), helpstring("Urlä¸­çš„ç«¯å£å·ã€‚"), helpcontext(9)] HRESULT UrlPort([out, retval] USHORT* pVal);
-	[propget, id(10), helpstring("Urlä¸­çš„ä¸»æœºåœ°å€éƒ¨åˆ†ã€‚"), helpcontext(10)] HRESULT UrlHost([out, retval] BSTR* pVal);
-	[propget, id(11), helpstring("Urlä¸­è¯·æ±‚çš„å¯¹è±¡ï¼ˆæ–‡ä»¶ï¼‰éƒ¨åˆ†ï¼Œå¦‚ï¼šindex.htmã€x?key=valueç­‰ã€‚"), helpcontext(11)] HRESULT UrlFile([out, retval] BSTR* pVal);
-	[propget, id(12), helpstring("Urlåœ°å€æ˜¯å¦SSLã€‚"), helpcontext(12)] HRESULT UrlIsSSL([out, retval] VARIANT_BOOL* pVal);
-	[id(13), helpstring("å¢åŠ è¯·æ±‚çš„å¤´ä¿¡æ¯ï¼Œå¦‚ï¼šContent-Typeï¼ˆåç§°ï¼‰: text/htmlï¼ˆå€¼ï¼‰"), helpcontext(13)] HRESULT AddHeader([in] BSTR szName,[in] BSTR szValue);
-	[propget, id(14), helpstring("ä¿å­˜è¯·æ±‚å“åº”å†…å®¹åˆ°æœ¬åœ°çš„æ–‡ä»¶ï¼ˆåŒ…æ‹¬å®Œæ•´è·¯å¾„å’Œæ–‡ä»¶åï¼‰ï¼ŒSaveResponseToFileå¿…é¡»ä¸ºTRUEï¼Œå¦åˆ™è¢«å¿½ç•¥ã€‚"), helpcontext(14)] HRESULT ResponseFile([out, retval] BSTR* pVal);
-	[propput, id(14), helpstring("ä¿å­˜è¯·æ±‚å“åº”å†…å®¹åˆ°æœ¬åœ°çš„æ–‡ä»¶ï¼ˆåŒ…æ‹¬å®Œæ•´è·¯å¾„å’Œæ–‡ä»¶åï¼‰ï¼ŒSaveResponseToFileå¿…é¡»ä¸ºTRUEï¼Œå¦åˆ™è¢«å¿½ç•¥ã€‚"), helpcontext(14)] HRESULT ResponseFile([in] BSTR newVal);
+	[propget, id(1), helpstring("ÇëÇóµÄURLµØÖ·×Ö·û´®£¬·¢ËÍÇëÇóÇ°±ØĞëÉèÖÃ¡£"), helpcontext(1)] HRESULT Url([out, retval] BSTR* pVal);
+	[propput, id(1), helpstring("ÇëÇóµÄURLµØÖ·×Ö·û´®£¬·¢ËÍÇëÇóÇ°±ØĞëÉèÖÃ¡£"), helpcontext(1)] HRESULT Url([in] BSTR newVal);
+	[propget, id(2), helpstring("°ó¶¨µÄhttp»á»°µÄCookieÃû³Æ£¬¿ÉÑ¡¡£"), helpcontext(2)] HRESULT SessionKey([out, retval] BSTR* pVal);
+	[propput, id(2), helpstring("°ó¶¨µÄhttp»á»°µÄCookieÃû³Æ£¬¿ÉÑ¡¡£"), helpcontext(2)] HRESULT SessionKey([in] BSTR newVal);
+	[propget, id(3), helpstring("ÇëÇó·½·¨£ºPOST£¨È±Ê¡£©¡¢GETµÈ"), helpcontext(3)] HRESULT Method([out, retval] BSTR* pVal);
+	[propput, id(3), helpstring("ÇëÇó·½·¨£ºPOST£¨È±Ê¡£©¡¢GETµÈ"), helpcontext(3)] HRESULT Method([in] BSTR newVal);
+	[propget, id(4), helpstring("»ñÈ¡ÊÇ·ñÏÖÊµHTTPÇëÇó½ø¶ÈÖ¸Ê¾´°¿Ú£¬È±Ê¡ÎªTRUE¡£"), helpcontext(4)] HRESULT ShowRequestProgress([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(4), helpstring("ÉèÖÃÊÇ·ñÏÖÊµHTTPÇëÇó½ø¶ÈÖ¸Ê¾´°¿Ú¡£"), helpcontext(4)] HRESULT ShowRequestProgress([in] VARIANT_BOOL newVal);
+	[propget, id(5), helpstring("ËæÇëÇó·¢ËÍµÄÎÄ¼şµÄ±¾µØÎÄ¼ş£¨°üÀ¨ÍêÕûÂ·¾¶ºÍÎÄ¼şÃû£©£¬¿ÉÑ¡£¬ÒªÌá½»ÎÄ¼şÄÚÈİ£¬MethodÊôĞÔ±ØĞëÉèÖÃÎª¡°POST¡±¡£"), helpcontext(5)] HRESULT PostFile([out, retval] BSTR* pVal);
+	[propput, id(5), helpstring("ËæÇëÇó·¢ËÍµÄÎÄ¼şµÄ±¾µØÎÄ¼ş£¨°üÀ¨ÍêÕûÂ·¾¶ºÍÎÄ¼şÃû£©£¬¿ÉÑ¡¡£"), helpcontext(5)] HRESULT PostFile([in] BSTR newVal);
+	[propget, id(6), helpstring("Ö¸Ê¾ÊÇ·ñ½«HttpÇëÇóÏìÓ¦£¨·´À¡£©ÄÚÈİ±£´æµ½ÎÄ¼ş£¬Ä¬ÈÏÎªFALSE£¬Èç¹ûÎªTRUE£¬±ØĞëÍ¬Ê±ÉèÖÃResponseFile£¬·ñÔò±»ºöÂÔ¡£"), helpcontext(6)] HRESULT SaveResponseToFile([out, retval] VARIANT_BOOL* pVal);
+	[propput, id(6), helpstring("Ö¸Ê¾ÊÇ·ñ½«HttpÇëÇóÏìÓ¦£¨·´À¡£©ÄÚÈİ±£´æµ½ÎÄ¼ş¡£"), helpcontext(6)] HRESULT SaveResponseToFile([in] VARIANT_BOOL newVal);
+	[id(7), helpstring("·¢ËÍÇëÇó²¢·µ»ØÇëÇóÏìÓ¦£¨·´À¡£©½á¹û¡£"), helpcontext(7)] HRESULT Send([out,retval] IHttpResponse** pVal);
+	[propget, id(8), helpstring("UrlÖĞµÄĞ­Òé²¿·Ö£¬Èçhttp¡£"), helpcontext(8)] HRESULT UrlProtocol([out, retval] BSTR* pVal);
+	[propget, id(9), helpstring("UrlÖĞµÄ¶Ë¿ÚºÅ¡£"), helpcontext(9)] HRESULT UrlPort([out, retval] USHORT* pVal);
+	[propget, id(10), helpstring("UrlÖĞµÄÖ÷»úµØÖ·²¿·Ö¡£"), helpcontext(10)] HRESULT UrlHost([out, retval] BSTR* pVal);
+	[propget, id(11), helpstring("UrlÖĞÇëÇóµÄ¶ÔÏó£¨ÎÄ¼ş£©²¿·Ö£¬Èç£ºindex.htm¡¢x?key=valueµÈ¡£"), helpcontext(11)] HRESULT UrlFile([out, retval] BSTR* pVal);
+	[propget, id(12), helpstring("UrlµØÖ·ÊÇ·ñSSL¡£"), helpcontext(12)] HRESULT UrlIsSSL([out, retval] VARIANT_BOOL* pVal);
+	[id(13), helpstring("Ôö¼ÓÇëÇóµÄÍ·ĞÅÏ¢£¬Èç£ºContent-Type£¨Ãû³Æ£©: text/html£¨Öµ£©"), helpcontext(13)] HRESULT AddHeader([in] BSTR szName,[in] BSTR szValue);
+	[propget, id(14), helpstring("±£´æÇëÇóÏìÓ¦ÄÚÈİµ½±¾µØµÄÎÄ¼ş£¨°üÀ¨ÍêÕûÂ·¾¶ºÍÎÄ¼şÃû£©£¬SaveResponseToFile±ØĞëÎªTRUE£¬·ñÔò±»ºöÂÔ¡£"), helpcontext(14)] HRESULT ResponseFile([out, retval] BSTR* pVal);
+	[propput, id(14), helpstring("±£´æÇëÇóÏìÓ¦ÄÚÈİµ½±¾µØµÄÎÄ¼ş£¨°üÀ¨ÍêÕûÂ·¾¶ºÍÎÄ¼şÃû£©£¬SaveResponseToFile±ØĞëÎªTRUE£¬·ñÔò±»ºöÂÔ¡£"), helpcontext(14)] HRESULT ResponseFile([in] BSTR newVal);
 };
 
 [
 	uuid(743C5A65-8B73-45A8-9CEC-EA8FB6E3DA3E),
 	version(1.0),
-	helpstring("å…¬æ–‡äº¤æ¢ç½‘ç»œè®¿é—®ç»„ä»¶åº“")
+	helpstring("¹«ÎÄ½»»»ÍøÂç·ÃÎÊ×é¼ş¿â")
 ]
 library netLib
 {
 	importlib("stdole2.tlb");
 	[
 		uuid(61BBE002-0D56-4147-A3FC-4577EF77334D),
-		helpstring("å‘é€httpè¯·æ±‚ç›¸å…³å®ç”¨å·¥å…·ç»„ä»¶äº‹ä»¶æ¥å£")
+		helpstring("·¢ËÍhttpÇëÇóÏà¹ØÊµÓÃ¹¤¾ß×é¼şÊÂ¼ş½Ó¿Ú")
 	]
 	dispinterface _IHttpRequestEvents
 	{
@@ -79,7 +79,7 @@ library netLib
 	};
 	[
 		uuid(99C0FB3E-3871-43DF-9316-C524FD8F0E02),
-		helpstring("å‘é€httpè¯·æ±‚ç›¸å…³å®ç”¨å·¥å…·çš„ç»„ä»¶")
+		helpstring("·¢ËÍhttpÇëÇóÏà¹ØÊµÓÃ¹¤¾ßµÄ×é¼ş")
 	]
 	coclass HttpRequest
 	{
@@ -88,7 +88,7 @@ library netLib
 	};
 	[
 		uuid(3AE591E6-5016-470D-8524-316F779374F0),
-		helpstring("å°è£…httpè¯·æ±‚å“åº”ï¼ˆåé¦ˆï¼‰ä¿¡æ¯çš„äº‹ä»¶æ¥å£")
+		helpstring("·â×°httpÇëÇóÏìÓ¦£¨·´À¡£©ĞÅÏ¢µÄÊÂ¼ş½Ó¿Ú")
 	]
 	dispinterface _IHttpResponseEvents
 	{
@@ -97,7 +97,7 @@ library netLib
 	};
 	[
 		uuid(72AD7AD0-47B7-4C3B-9455-7312B46F55D3),
-		helpstring("å°è£…httpè¯·æ±‚å“åº”ï¼ˆåé¦ˆï¼‰ä¿¡æ¯çš„ç»„ä»¶")
+		helpstring("·â×°httpÇëÇóÏìÓ¦£¨·´À¡£©ĞÅÏ¢µÄ×é¼ş")
 	]
 	coclass HttpResponse
 	{

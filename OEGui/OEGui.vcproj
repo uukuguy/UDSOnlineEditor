@@ -77,9 +77,11 @@
 				Name="VCLinkerTool"
 				RegisterOutput="true"
 				IgnoreImportLibrary="true"
+				OutputFile="..\UDSOnlineEditor\$(ProjectName).dll"
 				LinkIncremental="2"
 				ModuleDefinitionFile=".\OEGui.def"
 				GenerateDebugInformation="true"
+				AssemblyDebug="1"
 				SubSystem="2"
 				TargetMachine="1"
 			/>
@@ -210,6 +212,14 @@
 				RelativePath=".\base64.cpp"
 				>
 				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
 					Name="Release|Win32"
 					>
 					<Tool
@@ -265,6 +275,14 @@
 			<File
 				RelativePath="..\DsoFramer_V2.3.0.1\dsoframer_i.c"
 				>
+				<FileConfiguration
+					Name="Debug|Win32"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="0"
+					/>
+				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32"
 					>

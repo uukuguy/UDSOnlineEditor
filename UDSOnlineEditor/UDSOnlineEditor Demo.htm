@@ -5,7 +5,8 @@
 <script>
 	var OEOpenDocument = function(){
 		try{
-    		OEGOffice.OpenDocument("c:\\sandbox\\OnlineEditor\\demo.doc",false);
+    		//var bOpened = OEGOffice.OpenDocument("c:\\sandbox\\OnlineEditor\\UDSOnlineEditor\\demo.doc",false);
+            var bOpened = OEGOffice.OpenFromUDS("http://192.168.13.221/test2007.docx", "test2007.docx");
     	} catch(e){
     	    alert("Error: " + e.message);
     	}
